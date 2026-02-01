@@ -44,3 +44,17 @@ body {
     background-clip: text;
     margin: 0;
 }
+
+.header-title img {
+    height: 50px;                 /* change height as you want */
+    width: auto;                  /* maintain aspect ratio */
+    object-fit: contain;          /* keep icon proper */
+    vertical-align: middle;       /* ensures icon aligns with text baseline */
+}
+
+.subtitle { 
+    margin: 0; 
+    font-size: 14px; 
+    color: #64748b; 
+    font-weight: 500; 
+}
