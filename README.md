@@ -1,7 +1,3 @@
-# Extension-AI-Powered-Research-Assistant
-A Spring Boot–based AI Research Assistant that processes text (summarize, explain, translate, generate Q&amp;A, and more) using modern LLMs through the OpenRouter API. Designed as a backend service for browser or productivity extensions.
-
-
 # 🚀 AI-Powered Research Assistant — Chrome Extension (Frontend)
 
 This repository contains the **Chrome Extension frontend** for the AI-Powered Research Assistant.  
