@@ -169,3 +169,25 @@ function setLoadingState(loading, operation = 'summarize') {
     btn.disabled = loading;
     btn.innerHTML = loading ? ops[operation] || '⏳ Processing...' : '🚀 Process Selected Text';
 }
+
+
+async function copyFeedback(btnId, text) {
+    try {
+        await navigator.clipboard.writeText(text);
+    } catch {
+        const ta = document.createElement('textarea');
+        ta.value = text; 
+        document.body.appendChild(ta); 
+        ta.select(); 
+        document.execCommand('copy'); 
+        document.body.removeChild(ta);
+    }
+    const btn = document.getElementById(btnId);
+    const orig = btn.textContent;
+    btn.textContent = '✅ Copied!';
+    btn.style.background = '#dcfce7';
+    setTimeout(() => {
+        btn.textContent = orig;
+        btn.style.background = '';
+    }, 2000);
+}
