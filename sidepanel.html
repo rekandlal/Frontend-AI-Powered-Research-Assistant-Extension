@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Assistant</title>
+    <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+    <div class="container">
+        <!--  FIXED HEADER -->
+        <div class="header">
+            <h2 class="header-title">
+                <img src="ai-assistant.gif" alt="robot icon" class="header-icon">
+                Research Assistant
+            </h2>
+            <p class="subtitle">AI-powered insights & analysis</p>
+        </div>
+        
+     
+        <div class="main-content">
+            <!-- Operations Section -->
+            <div class="card input-section">
+                <div class="section-title">
+                    <h3>🎯 Operation</h3>
+                </div>
+                <select id="operationSelect" class="operation-select">
+                    <option value="summarize">✨ Summarize</option>
+                    <option value="explain">💡 Explain Simply</option>
+                    <option value="keywords">🔑 Extract Keywords</option>
+                    <option value="suggest">💭 Suggest Topics</option>
+                    <option value="translate">🌐 Translate to English</option>
+                    <option value="sentiment">😊 Sentiment Analysis</option>
+                    <option value="qa">❓ Generate Q&A</option>
+                    <option value="steps">📋 Create Steps</option>
+                </select>
+                <button id="processBtn" class="primary-btn">
+                    🚀 Summarize Selected Text
+                </button>
+            </div>
+
+    
+        </div>
+    </div>
+
+    <script src="sidepanel.js"></script>
+</body>
+</html>
