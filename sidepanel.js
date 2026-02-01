@@ -10,22 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (result.researchNotes) notesArea.value = result.researchNotes;
     });
 
-    // Event listeners or different operation hai perform karne ke liye
-     processBtn.addEventListener('click', processText);
-    saveNotesBtn.addEventListener('click',  saveNotes);
-    clearBtn.addEventListener('click',  clearResults);
+    // Event listeners
+    processBtn.addEventListener('click', processText);
+    saveNotesBtn.addEventListener('click', saveNotes);
+    clearBtn.addEventListener('click', clearResults);
 
-    
+    // Dynamic button text based on operation
     operationSelect.addEventListener('change', (e) => {
         const ops = {
-             'summarize': '🚀 Summarize Text',
+            'summarize': '🚀 Summarize Text',
             'explain': '💡 Explain Simply', 
-            'keywords' : '🔑 Extract Keywords',
+            'keywords': '🔑 Extract Keywords',
             'suggest': '💭 Suggest Topics',
             'translate': '🌐 Translate Text',
             'sentiment': '😊 Analyze Sentiment',
             'qa': '❓ Generate Q&A',
-            'steps' : '📋 Create Steps'
+            'steps': '📋 Create Steps'
         };
         processBtn.innerHTML = ops[e.target.value] || '🚀 Process Text';
     });
@@ -121,7 +121,6 @@ function showResultWithCopy(content, originalText, operation) {
     document.getElementById('copyOriginal').onclick = () => copyFeedback('copyOriginal', originalText);
 }
 
-
 function showResult(content) {
     document.getElementById('results').innerHTML = `<div class="result-item"><div class="result-content">${content}</div></div>`;
     adjustResultsHeight();
@@ -170,7 +169,6 @@ function setLoadingState(loading, operation = 'summarize') {
     btn.innerHTML = loading ? ops[operation] || '⏳ Processing...' : '🚀 Process Selected Text';
 }
 
-
 async function copyFeedback(btnId, text) {
     try {
         await navigator.clipboard.writeText(text);
@@ -190,4 +188,21 @@ async function copyFeedback(btnId, text) {
         btn.textContent = orig;
         btn.style.background = '';
     }, 2000);
+}
+
+
+function cleanAIResponse(text) {
+    return text
+        
+        .replace(/^#{1,6}\s*/gm, "")
+
+        .replace(/\*\*(.*?)\*\*/g, "$1")
+
+        .replace(/\*(.*?)\*/g, "$1")
+
+        .replace(/^[\s]*[-•*]\s+/gm, "")
+
+        .replace(/\n{3,}/g, "\n\n")
+
+        .trim();
 }
